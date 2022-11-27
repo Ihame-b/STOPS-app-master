@@ -128,17 +128,14 @@ class Cargo(models.Model):
         view_count = models.PositiveIntegerField(default=0)
         cargo_status = models.CharField(max_length=50, choices=CARGO_STATUS, default="Carg")
 
-  
         def __str__(self):
-            return "Cardo: " + str(self.id)     
-
-class LinfoxImage(models.Model):
-    cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="products/images/")
+                cargo_status = models.CharField(max_length=50, choices=CARGO_STATUS, default="Carg")
+                models.ForeignKey(Cargo, on_delete=models.CASCADE)
+                image = models.ImageField(upload_to="products/images/")
     
 
-    def __str__(self):
-        return self.cargo.CampanyName              
+        def __str__(self):
+             return self.cargo.CampanyName              
 
 
 class CartProduct(models.Model):
